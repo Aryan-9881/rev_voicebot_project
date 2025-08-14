@@ -1,0 +1,154 @@
+:root{
+  --bg:#e2dede; 
+  --text:#212529; 
+  --accent:#007bff; 
+  --accent-hover:#0056b3; 
+  --stop:#dc3545;
+  --bg-dark:#121212; 
+  --text-dark:#e9ecef; 
+  --accent-dark:#3793ff; 
+  --stop-dark:#e53e3e;
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  margin:0;
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--text);
+  transition:background .25s,color .25s;
+}
+
+body.dark-mode{
+  background:var(--bg-dark);
+  color:var(--text-dark);
+}
+
+h1{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  font-size:2rem;
+  margin:0 0 1rem;
+}
+
+#rev-logo-h1{
+  width:4.5rem;
+  height:4.5rem;
+}
+
+#revolt-logo{
+  position:fixed;
+  left:1.5rem;
+  top:1.5rem;
+  width:48px;
+  transition: background .25s;
+}
+
+/* Dark mode styling for Revolt logo */
+body.dark-mode #revolt-logo{
+  background-color:#fff;
+  padding:4px;
+  border-radius:8px;
+}
+
+#AB-logo{
+  position:fixed;
+  left:6rem;
+  top:1rem;
+  width:48px;
+}
+
+.theme-switch-label{
+  position:fixed;
+  right:1.5rem;
+  top:1.5rem;
+  width:48px;
+  height:24px;
+  cursor:pointer;
+}
+
+#theme-toggle{display:none}
+
+.slider{
+  position:relative;
+  display:block;
+  width:48px;
+  height:24px;
+  background:#ccc;
+  border-radius:24px;
+}
+
+.slider::before{
+  content:"";
+  position:absolute;
+  left:3px;
+  bottom:3px;
+  width:18px;
+  height:18px;
+  background:#fff;
+  border-radius:50%;
+  transition:transform .3s;
+}
+
+#theme-toggle:checked + .slider::before{
+  transform:translateX(24px);
+}
+
+#sessionToggleButton{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  font-size:1.6rem;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 8px rgba(0,0,0,.12);
+  transition: transform .2s, background .2s;
+}
+
+#sessionToggleButton.active-session{
+  background:var(--stop);
+}
+
+#sessionToggleButton:hover{
+  transform:scale(1.05);
+}
+
+#statusMessage{
+  margin-top:12px;
+  opacity:.9;
+}
+
+#transcript,#reply{
+  margin-top:8px;
+  padding:.6rem;
+  border-radius:8px;
+  max-width:760px;
+  width:100%;
+}
+
+#transcript{
+  background:rgba(0,0,0,0.03);
+}
+
+#reply{
+  background:rgba(0,123,255,0.06);
+  font-weight:600;
+}
+
+@media(max-width:600px){
+  h1{font-size:1.6rem}
+  #sessionToggleButton{width:64px;height:64px}
+}
